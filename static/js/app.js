@@ -15,4 +15,9 @@ list.forEach(function(obj){
 
 }
 populate_table(tableData)
-
+var filter_button=d3.select("#filter-btn")
+filter_button.on("click",function(){
+    var userInput=d3.select("#datetime").property("value")
+    var filtertable=tableData.filter(obj => obj.datetime==userInput)
+    populate_table(filtertable)
+})
